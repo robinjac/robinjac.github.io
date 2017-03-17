@@ -14,7 +14,7 @@ trumpOrDumpApp.factory('Trump',function ($resource,$cookieStore) {
 	
 	var currentTweet = "";
 
-	this.downloadTweets = function(num){
+	function downloadTweets(num){
 		var t = [];
 		
 		for(i = 0; i < num; i++){
@@ -26,7 +26,7 @@ trumpOrDumpApp.factory('Trump',function ($resource,$cookieStore) {
 		return t;
 	};
 	
-	tweets = this.downloadTweets(6); //tweets for training data
+	tweets = downloadTweets(5); //tweets for training data
 	
 	//memorizes the random pick so it doesn't get lost during page reload
 	if (!$cookieStore.get('q')){
@@ -172,7 +172,7 @@ trumpOrDumpApp.factory('Trump',function ($resource,$cookieStore) {
 	
 	this.getTweet = function(){
 		
-		if(tweets.length > 5){
+		if(tweets.length > 4){
 			
 			q = Math.round(Math.random())
 			$cookieStore.put('q',q);
@@ -186,7 +186,7 @@ trumpOrDumpApp.factory('Trump',function ($resource,$cookieStore) {
 				correctAns = false;
 				currentTweet = buildMarkov(tweets);
 				
-				tweets = this.downloadTweets(6); //download 10 new tweets
+				tweets = downloadTweets(5); //download 10 new tweets
 				
 				$cookieStore.put('currentTweet',currentTweet);
 				return currentTweet;
