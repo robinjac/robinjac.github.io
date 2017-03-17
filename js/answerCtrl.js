@@ -12,7 +12,7 @@ trumpOrDumpApp.controller('AnswerCtrl',function($scope, $routeParams, Trump){
 				$scope.showAnswer = "Tremendous!";
 			}else{
 			
-			Trump.updateScore(Trump.getScore() - 10);
+			Trump.updateScore(Trump.getScore() - 5);
 			$scope.showAnswer = "Wrong!";
 			};
 			
@@ -24,7 +24,7 @@ trumpOrDumpApp.controller('AnswerCtrl',function($scope, $routeParams, Trump){
 				$scope.showAnswer = "Tremendous!";
 			}else{
 			
-			Trump.updateScore(Trump.getScore() - 10);
+			Trump.updateScore(Trump.getScore() - 5);
 			$scope.showAnswer = "Wrong!";
 			};
 	
